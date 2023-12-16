@@ -1,0 +1,108 @@
+body {
+    background: linear-gradient(to right, #0074d9, #00d8d6);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+
+.main{
+    margin: auto;
+    background: white;
+    padding: 30px 30px;
+    width: 70%;
+}
+
+form{
+    float: right;
+}
+
+select {
+    height: 36px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    width: 200px;
+    outline: none;
+}
+  
+  /* Стиль для опций в выпадающем списке */
+select option {
+    font-size: 16px; /* Размер шрифта опций */
+    padding: 5px; /* Отступы внутри опций */
+    background-color: #fff; /* Цвет фона опций */
+    color: #333; /* Цвет текста опций */
+}
+  
+  /* Стиль для выбранной опции */
+select option:checked {
+    background-color: #0074d9; /* Цвет фона выбранной опции */
+    color: #fff; /* Цвет текста выбранной опции */
+}
+
+input[type="submit"]{
+    order: 1px solid #50507c;
+    background: linear-gradient(to bottom, #0074d9, #0056b3);
+    color: #fff;
+    height: 36px;
+    border: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover{
+    background-color: #0074d9;
+    color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+  }
+  
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+
+tr:nth-child(odd) {
+    background-color: #fff;
+  }
+  
+
+.pagination a {
+    border-radius: 3px;
+    text-align: center;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    padding: 5px;
+    margin: 3px;
+    background-color: lightgrey;
+    color: rgb(27, 27, 27);
+}
+.pagination a.active {
+    background-color: #0074d9;
+    color: rgb(255, 255, 255);
+}
