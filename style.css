@@ -29,7 +29,6 @@ select {
     outline: none;
 }
   
-  /* Стиль для опций в выпадающем списке */
 select option {
     font-size: 16px; /* Размер шрифта опций */
     padding: 5px; /* Отступы внутри опций */
@@ -141,4 +140,5 @@ footer {
   color: white;
   padding: 2px 0;
   text-align: center;
+  height: 107px;
 }

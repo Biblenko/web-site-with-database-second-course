@@ -18,45 +18,45 @@ class Cart
         return $this->products;
     }
 
-    // public function isEmpty() {}
-    // protected function get() {}
-    // public function clear() {}
-    // protected function deleteRow($i) {}
-    // protected function addRow($ar) {}
-    // protected function setAmount($i, $amount) {}
-    // protected function getAmount($i) {}
+    public function isEmpty() {}
+    protected function get() {}
+    public function clear() {}
+    protected function deleteRow($i) {}
+    protected function addRow($ar) {}
+    protected function setAmount($i, $amount) {}
+    protected function getAmount($i) {}
 
-    public function isEmpty() {
-        return (!isset($_SESSION[$this->key]) || !$_SESSION[$this->key]);
-    }
+    // public function isEmpty() {
+    //     return (!isset($_SESSION[$this->key]) || !$_SESSION[$this->key]);
+    // }
 
-    private function get() {
-        if ($this->isEmpty()) return [];
-        return $_SESSION[$this->key];
-    }
+    // private function get() {
+    //     if ($this->isEmpty()) return [];
+    //     return $_SESSION[$this->key];
+    // }
 
-    public function clear() {
-        unset($_SESSION[$this->key]);
-    }
+    // public function clear() {
+    //     unset($_SESSION[$this->key]);
+    // }
 
-    private function deleteRow($i) {
-        unset($_SESSION[$this->key][$i]);
-    }
+    // private function deleteRow($i) {
+    //     unset($_SESSION[$this->key][$i]);
+    // }
 
-    private function addRow($ar) {
-        if (!isset($_SESSION[$this->key])) {
-            $_SESSION[$this->key] = [];
-        }
-        $_SESSION[$this->key][] = $ar;
-    }
+    // private function addRow($ar) {
+    //     if (!isset($_SESSION[$this->key])) {
+    //         $_SESSION[$this->key] = [];
+    //     }
+    //     $_SESSION[$this->key][] = $ar;
+    // }
 
-    private function setAmount($i, $amount) {
-        $_SESSION[$this->key][$i]['amount'] = $amount;
-    }
+    // private function setAmount($i, $amount) {
+    //     $_SESSION[$this->key][$i]['amount'] = $amount;
+    // }
 
-    private function getAmount($i) {
-        return $_SESSION[$this->key][$i]['amount'];
-    }
+    // private function getAmount($i) {
+    //     return $_SESSION[$this->key][$i]['amount'];
+    // }
 
     public function __construct($db) {
         $this->db = $db;
@@ -65,10 +65,10 @@ class Cart
             $ids[] = $v['id'];
         }
         if ($ids) {
-            $rows = $this->db->find('oc_product')->where('product_id', 'IN', $ids)->rows();
+            $rows = $this->db->find('pc')->where('PC_ID', 'IN', $ids)->rows();
             $p = [];
             foreach($rows as $v) {
-                $p[$v['product_id']] = ['name' => $v['model'], 'price' => $v['price']];
+                $p[$v['PC_ID']] = ['name' => $v['CPU'], 'price' => $v['Price']];
             }
             $products = [];
             foreach($this->get() as $i=>$v) {
@@ -101,7 +101,7 @@ class Cart
 
     public function add($id) {
         if (!is_numeric($id)) return;
-        $product = $this->db->find('oc_product')->where('product_id','=', $id)->limit(1)->one();
+        $product = $this->db->find('pc')->where('PC_ID','=', $id)->limit(1)->one();
         if (!$product) return;
         $f = false;
         foreach($this->get() as $i=>$v) {

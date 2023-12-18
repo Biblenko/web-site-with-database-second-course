@@ -14,7 +14,13 @@
                 <li><a href="#">Главная</a></li>
                 <li><a href="#">О нас</a></li>
                 <li><a href="news.php">Новини</a></li>
-                <li><a href="#">Контакты</a></li>
+                <?php
+                    if (!app::cart()->isEmpty()) {
+                        ?>
+                        <li><a href="cart.php">Корзина (<?=app::cart()->count()?> / <?=app::cart()->sum()?> грн)</a></li>
+                        <?php
+                    }
+                ?>
             </ul>
         </div>
 
