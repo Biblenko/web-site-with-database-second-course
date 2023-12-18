@@ -1,7 +1,8 @@
 <?php
-include "db.php";
+include "includes.php";
 
 $cart = app::cart();
+
 if (isset($_REQUEST['cart']) && $_REQUEST['cart'] == 'add' && isset($_REQUEST['id'])) {
     $cart->add($_REQUEST['id']);
     unset($_REQUEST['id']);

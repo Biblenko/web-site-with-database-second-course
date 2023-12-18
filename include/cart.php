@@ -6,7 +6,6 @@ class Cart
     protected $sum = 0;
     protected $count = 0;
 
-
     public function count() {
         return $this->count;
     }
@@ -19,17 +18,15 @@ class Cart
         return $this->products;
     }
 
-    public function isEmpty() {}
-    protected function get() {}
-    public function clear() {}
-    protected function deleteRow($i) {}
-    protected function addRow($ar) {}
-    protected function setAmount($i, $amount) {}
-    protected function getAmount($i) {}
-    //
+    // public function isEmpty() {}
+    // protected function get() {}
+    // public function clear() {}
+    // protected function deleteRow($i) {}
+    // protected function addRow($ar) {}
+    // protected function setAmount($i, $amount) {}
+    // protected function getAmount($i) {}
 
-    /*
-s    public function isEmpty() {
+    public function isEmpty() {
         return (!isset($_SESSION[$this->key]) || !$_SESSION[$this->key]);
     }
 
@@ -60,8 +57,6 @@ s    public function isEmpty() {
     private function getAmount($i) {
         return $_SESSION[$this->key][$i]['amount'];
     }
-    */
-    //
 
     public function __construct($db) {
         $this->db = $db;

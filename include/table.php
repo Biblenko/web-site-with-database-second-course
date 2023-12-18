@@ -45,7 +45,7 @@ class WebTable
             <?php
             $num = $pagination->getFirst();
             foreach($rows as $row) {
-                echo '<tr><td>'.($num + 1).'</td><td>'.$row['CPU'].'</td><td>'.$row['GPU'].'</td><td>'.$row['Storage'].'</td><td>'.$row['RAM_GB'].'</td><td>'.$row['Price'].'</td></tr>';
+                echo '<tr><td>'.($num + 1).'</td><td>'.$row['CPU'].'</td><td>'.$row['GPU'].'</td><td>'.$row['Storage'].'</td><td>'.$row['RAM_GB'].'</td><td>'.$row['Price'].'</td><td><a href="cart.php'.$pagination->getParams($pagination->getPage()).'&cart=add&id='.$row['PC_ID'].'">Купити</a></td></tr>';
                 $num ++;
             }
             echo '</table>';
