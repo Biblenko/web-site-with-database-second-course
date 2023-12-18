@@ -2,8 +2,8 @@
 
 class Pagination
 {
-    public $limits = [10, 50, 100];
-    private $limit = 10;
+    public $limits = [10, 20, 30, 60];
+    private $limit = 30;
     private $page = 1;
     private $rowsCount = 0;
     private $pageCount = 0;

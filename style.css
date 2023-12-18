@@ -10,6 +10,7 @@ body {
     margin: auto;
     background: white;
     padding: 30px 30px;
+    height: 100%;
     width: 70%;
 }
 
@@ -105,4 +106,39 @@ tr:nth-child(odd) {
 .pagination a.active {
     background-color: #0074d9;
     color: rgb(255, 255, 255);
+}
+
+.top-menu {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #555;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 2px 0;
+  text-align: center;
 }
