@@ -32,13 +32,6 @@
 
                 if (app::db()->isConnect()) 
                 {
-                    ?>
-                    <div>
-                        <?php
-
-                        ?>
-                    </div>
-                    <?php
                     $tab = new WebTable();
                     $tab->createTable($count, $sqlOrder);
                 } 

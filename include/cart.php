@@ -68,7 +68,7 @@ class Cart
             $rows = $this->db->find('pc')->where('PC_ID', 'IN', $ids)->rows();
             $p = [];
             foreach($rows as $v) {
-                $p[$v['PC_ID']] = ['name' => $v['CPU'], 'price' => $v['Price']];
+                $p[$v['PC_ID']] = ['name' => $v['CPU'] /*+ ' ' + $v['GPU']*/, 'price' => $v['Price']];
             }
             $products = [];
             foreach($this->get() as $i=>$v) {

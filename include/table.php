@@ -11,19 +11,17 @@ class WebTable
     public function createTable($sql_count, $sql_rows)
     {
         $pagination = new Pagination();
-        $pagination->setLimit((isset($_REQUEST['limit']))?$_REQUEST['limit']:10);
+        $pagination->setLimit(Request::get('limit', 20));
 
         ?>
         <div class="table">
             <form>
-                <select name="limit">
+                <div class="limit">
                     <?php
-                        foreach($pagination->limits as $lim) {
-                            echo '<option '.(($lim == $pagination->getLimit())?'selected':'').'>'.$lim.'</option>';
-                        }
+                        HtmlHelper::select("limit", $pagination->limits, $pagination->getLimit());
                     ?>
-                </select>
-                <input type="submit" value="OK">
+                </div>
+                <input type="submit" value="Знайти">
             </form>
         <?php
 
@@ -35,19 +33,26 @@ class WebTable
         if ($rows === false) {
             echo 'Error select';
         } else {
-            echo "<div class="."text".">Rows: {$pagination->getRowsCount()} Pages: {$pagination->getPageCount()}</div>";
+            //echo "<div class="."text".">Rows: {$pagination->getRowsCount()} Pages: {$pagination->getPageCount()}</div>";
             echo '</table>';
             echo '<div class="pagination">';
             echo $pagination->show();
             echo '</div>';
-            ?>
-            <table border='1'><tr><th>NUMBER</th><th>CPU</th><th>GPU</th><th>Storage</th><th>RAM(GB)</th><th>Price</th></tr>
-            <?php
-            $num = $pagination->getFirst();
-            foreach($rows as $row) {
-                echo '<tr><td>'.($num + 1).'</td><td>'.$row['CPU'].'</td><td>'.$row['GPU'].'</td><td>'.$row['Storage'].'</td><td>'.$row['RAM_GB'].'</td><td>'.$row['Price'].'</td><td><a href="cart.php'.$pagination->getParams($pagination->getPage()).'&cart=add&id='.$row['PC_ID'].'">Купити</a></td></tr>';
-                $num ++;
+
+            echo "<table border='1'><tr>";
+            foreach ($rows[0] as $key => $value) {
+                echo "<th>".$key."</th>";
             }
+            echo "</tr>";
+            
+            foreach($rows as $row) {
+                echo "<tr>";
+                foreach ($row as $key => $value) {
+                    echo "<td>".$value."</td>";
+                }
+                echo '<td><a href="cart.php'.$pagination->getParams($pagination->getPage()).'&cart=add&id='.$row['PC_ID'].'">Купити</a></td></tr>';
+            }
+            
             echo '</table>';
             echo '<div class="pagination">';
             echo $pagination->show();
